@@ -127,8 +127,6 @@ static void
 roachThink (LeafScreen *ss,
 	   Leaf  *sf)
 {
-    float roachSize = roachGetLeafSize (ss->s->display);
-
 	float roach_change;
 	float roach_move_decide;
 	int moveornot;
