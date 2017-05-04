@@ -122,7 +122,6 @@ typedef struct _LeafScreen
 
 /* some forward declarations */
 static void initiateLeaf (LeafScreen * ss, Leaf * sf);
-static void roachMove (CompDisplay *d, Leaf * sf);
 
 static void
 roachThink (LeafScreen *ss,
@@ -213,14 +212,6 @@ if (sf->roach_direction == 4)
     sf->frame_flag=sf->frame_flag*-1;
 
     sf->tex = &ss->roachTex[sf->frame];
-    roachMove (ss->s->display, sf);
-}
-
-static void
-roachMove (CompDisplay *d,
-	  Leaf   *sf)
-{
-
 }
 
 static Bool
