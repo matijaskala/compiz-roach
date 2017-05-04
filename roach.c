@@ -128,26 +128,7 @@ static void
 roachThink (LeafScreen *ss,
 	   Leaf  *sf)
 {
-    int boxing;
-    int texwidth;
-    int texheight;
-
-    boxing = roachGetScreenBoxing (ss->s->display);
-
     float roachSize = roachGetLeafSize (ss->s->display);
-
-
-texwidth = &ss->roachTex[sf->frame].width;
-texheight = &ss->roachTex[sf->frame].height;
-//texheight = texheight*(roachSize-100);
-
-
-
-//	sf->z <= -((float) roachGetScreenDepth (ss->s->display) / 500.0) ||
-//	sf->z >= 1)
-//  {
-//	initiateLeaf (ss, sf);
-//    }
 
 	float roach_change;
 	float roach_move_decide;
@@ -239,13 +220,6 @@ static void
 roachMove (CompDisplay *d,
 	  Leaf   *sf)
 {
-    float tmp = 1.0f / (100.0f - roachGetWindSpeed (d));
-    int   roachUpdateDelay = roachGetAutumnUpdateDelay (d);
-
-//    sf->x += (sf->xs * (float) roachUpdateDelay) * tmp;
-//    sf->y += (sf->ys * (float) roachUpdateDelay) * tmp;
-//    sf->z += (sf->zs * (float) roachUpdateDelay) * tmp;
-//    sf->ra += ((float) roachUpdateDelay) / (10.0f - sf->rs);
 
 }
 
