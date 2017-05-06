@@ -752,6 +752,18 @@ roachDisplayOptionChanged (CompDisplay        *d,
 		updateLeafTextures (s);
 	}
 	break;
+    case RoachDisplayOptionDefaultEnabled:
+	{
+	    CompScreen *s;
+	    for (s = d->screens; s; s = s->next)
+	    {
+		ROACH_SCREEN (s);
+		ss->active = roachGetDefaultEnabled(s->display);
+		ss->displayListNeedsUpdate = TRUE;
+		damageScreen (s);
+	    }
+	}
+	break;
     default:
 	break;
     }
@@ -778,6 +790,7 @@ roachInitDisplay (CompPlugin  *p,
     roachSetLeafSizeNotify (d, roachDisplayOptionChanged);
     roachSetAutumnUpdateDelayNotify (d, roachDisplayOptionChanged);
     roachSetLeafTexturesNotify (d, roachDisplayOptionChanged);
+    roachSetDefaultEnabledNotify (d, roachDisplayOptionChanged);
 
     texOpt = roachGetLeafTexturesOption (d);
     sd->roachTexFiles = texOpt->value.list.value;
